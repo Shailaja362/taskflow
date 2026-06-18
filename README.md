@@ -12,18 +12,18 @@ your **Windows + WSL2 (Ubuntu)** machine.
 
 ## What this covers
 
-| JD area | Where it lives |
-|---|---|
-| React / TS / HTML / CSS | `frontend/` |
-| Node.js / REST / SQL | `backend/` |
-| Docker (multi-stage, compose) | `*/Dockerfile`, `docker-compose.yml` |
-| Terraform / IaC (VPC, RDS, ECS, ALB, S3, IAM) | `infra/` |
-| AWS services (free via LocalStack) | `infra/docker-compose.localstack.yml` |
-| ECS / orchestration | `infra/modules/ecs` |
-| Jenkins CI/CD + quality gates | `Jenkinsfile`, `jenkins/` |
-| Linux + shell scripting | `scripts/` |
-| Networking / Nginx / TLS | `nginx/`, `frontend/nginx.conf` |
-| Git workflow | `.github/branching-strategy.md` |
+| JD area                                       | Where it lives                        |
+| --------------------------------------------- | ------------------------------------- |
+| React / TS / HTML / CSS                       | `frontend/`                           |
+| Node.js / REST / SQL                          | `backend/`                            |
+| Docker (multi-stage, compose)                 | `*/Dockerfile`, `docker-compose.yml`  |
+| Terraform / IaC (VPC, RDS, ECS, ALB, S3, IAM) | `infra/`                              |
+| AWS services (free via LocalStack)            | `infra/docker-compose.localstack.yml` |
+| ECS / orchestration                           | `infra/modules/ecs`                   |
+| Jenkins CI/CD + quality gates                 | `Jenkinsfile`, `jenkins/`             |
+| Linux + shell scripting                       | `scripts/`                            |
+| Networking / Nginx / TLS                      | `nginx/`, `frontend/nginx.conf`       |
+| Git workflow                                  | `.github/branching-strategy.md`       |
 
 ---
 
@@ -192,21 +192,5 @@ See `.github/branching-strategy.md`.
 
 ---
 
-## Suggested learning order / talking points for interviews
-
-1. Explain the **request flow**: browser → Nginx proxy (TLS) → frontend Nginx →
-   `/api` proxy → Node API → Postgres.
-2. Explain the **deploy flow**: git push → Jenkins pipeline → tests/scan gates →
-   docker images → Terraform/ECS.
-3. Explain **why IaC**: same Terraform runs against LocalStack or real AWS.
-4. Explain **security choices**: non-root container user, helmet headers, JWT,
-   least-privilege IAM, DB in private subnet reachable only from app SG.
-
----
-
-## Project 2 idea (mobile automation — fills the Appium/Espresso gap)
-
-The JD also lists mobile test automation. As a follow-up, build a tiny app with
-an **Appium** UI test suite run on **Android emulators**, wired into a second
-Jenkins pipeline, with the Appium server containerized in Docker. All free.
+n Docker. All free.
 Ask and I'll generate that project the same way.
