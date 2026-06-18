@@ -1,0 +1,15 @@
+services:
+  jenkins:
+    image: jenkins/jenkins:lts-jdk17
+    user: root  # needed so Jenkins can use the host Docker socket
+    ports:
+      - "8081:8080"
+      - "50000:50000"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock  # docker-out-of-docker
+    environment:
+      JAVA_OPTS: "-Djenkins.install.runSetupWizard=true"
+
+volumes:
+  jenkins_home:
