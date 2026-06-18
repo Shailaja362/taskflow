@@ -10,7 +10,7 @@ your **Windows + WSL2 (Ubuntu)** machine.
 
 ---
 
-## What this covers (mapped to the JD)
+## What this covers
 
 | JD area | Where it lives |
 |---|---|

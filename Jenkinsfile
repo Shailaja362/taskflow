@@ -3,12 +3,15 @@
 // security scan (Trivy), and a deploy stage (terraform/compose).
 pipeline {
   agent any
+ tools {
+    nodejs 'node20'
+  }
 
   options {
     timestamps()
     timeout(time: 30, unit: 'MINUTES')
   }
-
+ 
   environment {
     IMAGE_BACKEND  = "taskflow-backend:${env.BUILD_NUMBER}"
     IMAGE_FRONTEND = "taskflow-frontend:${env.BUILD_NUMBER}"
